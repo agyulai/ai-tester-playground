@@ -33,7 +33,7 @@ Before you begin, ensure you have met the following requirements:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/ai-tester-playground.git
+   git clone https://github.com/agyulai/ai-tester-playground.git
    cd ai-tester-playground
    ```
 
