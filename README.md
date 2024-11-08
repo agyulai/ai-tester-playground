@@ -137,37 +137,73 @@ The application exposes several API endpoints under the `/ai` path. Below are th
 
   Analyzes test results to provide recommendations.
 
+  **Sample Request**
+   
+   ```bash
+   curl -X POST http://localhost:23500/ai/test-result/analyse \
+     -H "Content-Type: application/json" \
+     -d '{
+           "userMessage": "<YOUR_ERROR_MESSAGE_HERE>"
+         }'
+   ```
+
 - **POST /ai/test-error/analyse**
 
   Analyzes error messages to extract failure points and related files.
+  
+  **Sample Request**
+   
+   ```bash
+   curl -X POST http://localhost:23500/ai/test-error/analyse \
+     -H "Content-Type: application/json" \
+     -d '{
+           "userMessage": "<YOUR_ERROR_MESSAGE_HERE>"
+         }'
+   ```
 
 - **POST /ai/test-description/generate**
 
   Generates detailed test descriptions based on provided specifications.
+  
+  **Sample Request**
+   
+   ```bash
+   curl -X POST http://localhost:23500/ai/test-description/generate \
+     -H "Content-Type: application/json" \
+     -d '{
+           "featureSpecification": "<YOUR_FEATURE_SPECIFICATION_HERE>",
+           "testCaseTitle": "<YOUR_TEST_CASE_TITLE_HERE>"
+         }'
+
+   ```
 
 - **POST /ai/test-generation/generate**
 
   Generates comprehensive test cases from business specifications.
 
-### Sample Request
-
-```bash
-POST http://localhost:23500/ai/test-description/generate
-Content-Type: application/json
-
-{
-  \"featureSpecification\": \"Your feature specification here...\",
-  \"testCaseTitle\": \"Your test case title here...\"
-}
-```
-
-### Sample Response
-
-```json
-{
-  \"analysis\": \"Generated test description...\"
-}
-```
+   **Sample Request**
+   
+   ```bash
+   curl -X POST http://localhost:23500/ai/test-generation/generate \
+     -H "Content-Type: application/json" \
+     -d '{
+           "aiSettings": {
+             "aiModel": "<YOUR_AI_MODEL_HERE>",
+             "customTemperature": <YOUR_CUSTOM_TEMPERATURE_HERE>
+           },
+           "messages": [
+             {
+               "author": "system",
+               "type": "specification",
+               "message": "<YOUR_BUSINESS_SPECIFICATION_HERE>"
+             },
+             {
+               "author": "user",
+               "message": "<YOUR_USER_MESSAGE_HERE>"
+             }
+           ]
+         }'
+   ```
 
 ## Viewing Output
 
