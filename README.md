@@ -188,8 +188,8 @@ The application exposes several API endpoints under the `/ai` path. Below are th
      -H "Content-Type: application/json" \
      -d '{
            "aiSettings": {
-             "aiModel": "<YOUR_AI_MODEL_HERE>",
-             "customTemperature": <YOUR_CUSTOM_TEMPERATURE_HERE>
+             "aiModel": "gpt-4o",
+             "customTemperature": 0.7
            },
            "messages": [
              {
